@@ -1,0 +1,8 @@
+$component-margin-top: $layout-margin-top;
+$component-margin-right: $layout-margin-right;
+$component-margin-bottom: $layout-margin-bottom;
+$component-margin-left: $layout-margin-left;
+$component-margin: $component-margin-top $component-margin-right $component-margin-bottom $component-margin-left;
+$component-margin-centered: $component-margin-top auto $component-margin-bottom;
+
+$component-border-width: $layout-border-width;

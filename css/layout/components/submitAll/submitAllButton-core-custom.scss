@@ -1,0 +1,14 @@
+@include customize-style-block('SubmitAllSectionStatusContainerQuestionList') {
+    color: $component-color-text-dark;
+}
+
+@include customize-style-block('SubmitAllSectionStatusContainerQuestionItemHover') {
+    color: $component-color-text-light-hover;
+    .QuestionFlag {
+        .SVGIcon {
+            @include generate-style-block('SubmitAllSectionStatusContainerQuestionItemHoverQuestionFlagSVGIcon') {
+                stroke: $component-color-text-light-hover;
+            }
+        }
+    }
+}

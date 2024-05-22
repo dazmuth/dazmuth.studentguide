@@ -1,0 +1,70 @@
+@include customize-style-block('InnerHeader') {
+    height: auto;
+    min-height: auto;
+    max-height: $menu-middle-height;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: $layout-horizontal-alignment;
+    padding: 0 20px;
+    flex-wrap: nowrap;
+    border: 0 solid $layout-color-container-background-dark;
+    border-bottom-width: 1px;
+    font-size: $basic-font-size;
+    font-weight: 400;
+    box-sizing: border-box;
+
+    > .ComponentLink {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ComponentLink.TimerLink.Visible ~ .SubmitAllButtonLink.Visible ~ .BreadcrumbLink.Visible {
+        display: none !important;
+    }
+
+    @media #{$basic-screen-query-narrow} {
+        .ComponentLink.TimerLink.Visible ~ .SubmitAllButtonLink.Visible ~ .BreadcrumbLink.Visible {
+            display: block !important;
+            margin-#{$left}: 20px;
+            margin-#{$right}: auto !important;
+        }
+    }
+
+    .ComponentLink.BreadcrumbLink {
+        @include generate-style-block('InnerHeaderComponentLinkBreadcrumbLink') {
+            overflow: hidden;
+            flex: 0 1 auto;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            margin-#{$left}: 20px;
+            margin-#{$right}: auto;
+        }
+    }
+
+    .ComponentLink.SubmitAllButtonLink {
+        @include generate-style-block('InnerHeaderComponentLinkSubmitAllButtonLink') {
+            @extend .Button;
+            flex: 0 0 auto;
+            margin-#{$left}: auto;
+            display: inline-block;
+            padding: 8px 20px !important;
+            background-color: $layout-color-branding3 !important;
+        }
+
+        .ComponentLinkTitle {
+            @include generate-style-block('InnerHeaderComponentLinkSubmitAllButtonLinkTitle') {
+                display: inline-block;
+                vertical-align: $layout-vertical-alignment;
+            }
+        }
+
+        .SVGIcon {
+            @include generate-style-block('InnerHeaderComponentLinkSubmitAllButtonLinkSVGIcon') {
+                display: inline-block;
+                vertical-align: $layout-vertical-alignment;
+                height: 100% !important;
+            }
+        }
+    }
+}

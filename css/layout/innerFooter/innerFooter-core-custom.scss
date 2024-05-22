@@ -1,0 +1,26 @@
+@include customize-style-block('InnerFooter') {
+    position: absolute;
+    bottom: 0;
+    height: $innerfooter-height;
+    font-size: 12px;
+    color: $layout-color-text-dark;
+    font-weight: 200;
+    display: flex;
+    width: calc(100% - #{$outer-menu-width}) !important;
+    background-color: darken($layout-color-container-background-light, 7%);
+    padding: 0 $layout-margin-bottom;
+    box-sizing: border-box;
+
+    .Copyright {
+        @include generate-style-block('Copyright') {
+            flex: 0 0 auto;
+            margin-#{$left}: auto;
+        }
+        .Normal {
+            @include generate-style-block('CopyrightNormal') {
+                display: block;
+                margin: 7px
+            }
+        }
+    }
+}

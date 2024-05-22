@@ -1,0 +1,14 @@
+//the associated core ticket - WPS-7169
+@include customize-style-block('MatchingQuestionDistractorWrapper') {
+    width: 100%;
+    max-width: 610px;
+    min-width: 250px;
+    @media #{$basic-screen-query-narrow} {
+        max-width: $matching-max-width;
+        min-width: $matching-min-width;
+    }
+}
+
+@include customize-style-block('MatchingQuestionsMatchWrapperLabel') {
+    width: 90%;
+}

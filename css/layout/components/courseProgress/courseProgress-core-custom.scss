@@ -1,0 +1,33 @@
+%CourseProgressLinkStyle {
+    position: inherit;
+    height: 20px;
+    color: $component-color-text-dark;
+    font-weight: inherit;
+    // !important is needed to fix .ComponentLink greediness
+    font-size: 0.8em!important;
+    display: inline;
+}
+
+@include customize-style-block('CourseProgressLength') {
+    color: inherit;
+}
+
+@include customize-style-block('CourseProgressLink') {
+    @extend %CourseProgressLinkStyle;
+
+    &:hover {
+        @extend %CourseProgressLinkStyle;
+    }
+}
+
+@media #{$basic-screen-query-narrow} {
+    @include customize-style-block('CourseProgressLink') {
+        font-size: $basic-font-size;
+    }
+}
+
+@include customize-style-block('CourseProgress') {
+    &>*:first-child:after {
+        content: '\a0';
+    }
+}

@@ -1,0 +1,114 @@
+@include customize-style-block('PageHeader') {
+    background-image: none;
+    box-shadow: none;
+    border: 0 solid $layout-color-container-background-dark;
+    border-bottom-width: 1px;
+}
+
+@include customize-style-block('PageHeaderTitle') {
+    color: $layout-color-text-dark;
+    font-size: 23px;
+    font-weight: 300;
+    font-style: normal;
+    padding: $layout-padding;
+    margin: 0;
+}
+
+%NovaLogo {
+    padding: $layout-padding;
+    max-height: 35px;
+    max-width: 100%;
+    width: auto;
+    float: none;
+}
+
+@include customize-style-block('PageHeaderLogo') {
+    @extend %NovaLogo;
+}
+
+@include customize-style-block('PageHeaderSmallLogo') {
+    @extend %NovaLogo;
+}
+
+.header-inner-wrap {
+    @include generate-style-block('HeaderInnerWrap') {
+        padding: 25px 40px 5px;
+        display: flex;
+        align-items: $layout-horizontal-alignment;
+        flex-wrap: nowrap;
+        height: calc(100% - #{$secondary-header-height});
+        box-sizing: border-box;
+    }
+
+    .logo-container {
+        @include generate-style-block('HeaderInnerWrapLogoContainer') {
+            margin-#{$right}: 26px;
+            flex: 0 1 auto;
+        }
+    }
+
+    .course-tile-container {
+        @include generate-style-block('HeaderInnerWrapCourseTitleContainer') {
+            font-size: 23px;
+            color: $layout-color-text-dark;
+            font-weight: 200;
+            overflow: hidden;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            overflow-wrap: anywhere;
+            flex: 1 1 auto;
+            display: none;
+        }
+    }
+
+    .course-navigation-container {
+        @include generate-style-block('HeaderInnerWrapCourseNavigationContainer') {
+            // Pushes to the right in flexbox
+            margin-#{$left}: auto;
+            flex: 0 0 auto;
+        }
+
+        #MenuHamburgerIcon {
+            @include generate-style-block('HeaderInnerWrapCourseNavigationContainerMenuIcon') {
+                font-size: 0;
+                vertical-align: middle;
+                margin-#{$left}: 20px;
+                display: inline-block;
+            }
+
+            .SVGIcon {
+                @include generate-style-block('HeaderInnerWrapCourseNavigationContainerMenuSVGIcon') {
+                    fill: $layout-color-text-dark;
+                    width: $main-menu-icon-dimension;
+                    height: $main-menu-icon-dimension;
+                }
+            }
+        }
+    }
+
+    @media #{$basic-screen-query-narrow} {
+        .course-tile-container {
+            @include generate-style-block('HeaderInnerWrapCourseTitleContainerNarrow') {
+                display: block;
+            }
+        }
+
+        .course-navigation-container {
+            @include generate-style-block('HeaderInnerWrapCourseNavigationContainerNarrow') {
+                flex: 0 0 auto;
+            }
+
+            .NavigationButtonsLink {
+                @include generate-style-block('HeaderInnerWrapCourseNavigationButtonsLinkNarrow') {
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+.secondary-header {
+    @include generate-style-block('SecondaryHeader') {
+        height: $secondary-header-height;
+    }
+}

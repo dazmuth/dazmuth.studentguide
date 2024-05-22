@@ -1,0 +1,48 @@
+@include customize-style-block('Breadcrumb') {
+    font-size: calc(0.5em + 1vw);
+    font-weight: 400;
+    display: block;
+    text-overflow: ellipsis;
+    margin-#{$right}: 10px;
+}
+
+@media #{$basic-screen-query-narrow} {
+    @include customize-style-block('Breadcrumb') {
+        font-size: $basic-font-size;
+    }
+}
+
+@include customize-style-block('BreadcrumbItem') {
+    color: $component-color-text-dark;
+    display: none;
+
+    &:last-of-type {
+        color: $component-color-branding2;
+        display: inline;
+    }
+
+    &:nth-last-of-type(2) {
+        display: inline;
+    }
+}
+
+@include customize-style-block('BreadcrumbDelimiter') {
+    color: lighten($component-color-text-dark, 28%);
+    padding: 0 5px;
+    display: none;
+
+    &:last-of-type {
+        display: inline;
+    }
+}
+
+@media #{$basic-screen-query-narrow} {
+    @include customize-style-block('BreadcrumbItem') {
+        display: inline;
+    }
+
+    @include customize-style-block('BreadcrumbDelimiter') {
+        display: inline;
+        padding: 0 15px;
+    }
+}

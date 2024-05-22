@@ -1,0 +1,32 @@
+@include customize-style-block('SidebarRight') {
+    width: 0;
+    flex: 0 0 auto;
+    overflow: visible;
+
+    $main-menu-icon-size: $layout-icon-dimension;
+    
+    #MainMenuIcon {
+        @include generate-style-block('SidebarRightMainMenuIcon') {
+            position: relative;
+            height: 0;
+            float: $left;
+            width: 0;
+            #{$right}: $main-menu-icon-size;
+            overflow: visible;
+            font-size: 0;
+        }
+
+        .SVGIcon {
+            @include generate-style-block('SidebarRightMainMenuSVGIcon') {
+                width: $main-menu-icon-size;
+                height: $main-menu-icon-size;
+            }
+        }
+    }
+
+    @media #{$basic-screen-query-wide} {
+        @include generate-style-block('SidebarRightWide') {
+           width: auto;
+        }
+    }
+}

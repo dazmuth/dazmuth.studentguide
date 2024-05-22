@@ -1,0 +1,9 @@
+//the associated core ticket - WPS-7208
+@include customize-style-block('SubmitAllSectionStatusContainerQuestionItem') {
+    font-size: 0.85em; //calc(0.7em + 0.5vw);
+    white-space: normal;
+
+    * {
+        padding: 10px;
+    }
+}

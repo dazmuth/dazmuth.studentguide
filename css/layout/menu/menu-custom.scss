@@ -1,0 +1,31 @@
+@include customize-style-block('MainMenuWrapper') {
+
+    .Top > .ComponentLink {
+        width: 60px;
+    }
+
+    .course-tile-container {
+        box-sizing: border-box;
+    }
+}
+
+@include customize-style-block('MainMenuComponentLinkActive') {
+    fill: $basic-color-branding1;
+}
+
+@include customize-style-block('MainMenuTopRegion') {
+    height: $menu-middle-height;
+    background-color: $layout-color-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+@include customize-style-block('MainMenuMiddleRegion') {
+    height: auto;
+    background-color: inherit;
+    display: block;
+    white-space: normal;
+    width: 100%;
+    max-width: 100%;
+}

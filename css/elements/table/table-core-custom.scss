@@ -1,0 +1,22 @@
+@include customize-style-block('TableTitleWrapper') {
+    margin: $elements-margin;
+    font-weight: 400;
+    color: $elements-color-branding3;
+
+    &:empty {
+        display: none;
+    }
+}
+
+@include customize-style-block('TableCellContent') {
+    padding: 5px;
+
+    .RichText {
+        margin: 0;
+    }
+}
+
+@include customize-style-block('TableHeaderRow') {
+    color: $elements-color-text-dark;
+    background: $elements-color-container-background-dark;
+}

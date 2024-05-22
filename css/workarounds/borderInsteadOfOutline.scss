@@ -1,0 +1,32 @@
+//the associated core ticket - WPS-7249
+
+//for Menu and Navigation Tree
+@include customize-style-block('MainMenuWrapper') {
+
+    &:focus {
+        outline-width: 0;
+    }
+
+    .Bottom {
+        border: 0 solid $basic-color-border;
+        border-left-width: 0;
+    }
+}
+
+@include customize-style-block('NavigationTreeNode') {
+    .NavigationTreeItem {
+        border: 0 solid $basic-color-border;
+        border-bottom-width: 0px;
+    }
+}
+
+//for popup with Submit All Section Status
+@include customize-style-block('SubmitAllSectionStatusContainerQuestionItem') {
+    outline: none;
+    border: 0 solid darken($component-color-text-dark, 75%);
+    border-top-width: 1px;
+
+    &:first-of-type {
+        border-top-width: 0;
+    }
+}

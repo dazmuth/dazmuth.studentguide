@@ -1,0 +1,77 @@
+$navigation-icon-dimension: 50px;
+
+@mixin NavigationSVGIconStyle {
+    height: $navigation-icon-dimension;
+    width: $navigation-icon-dimension;
+    fill: $component-color-text-dark;
+}
+
+%NavigationSVGIconPlaceholder {
+    @include NavigationSVGIconStyle;
+}
+
+@include customize-style-block('NavigationButtonsLink') {
+    display: inline;
+
+    .NavigationButton {
+        @include generate-style-block('NavigationButton') {
+            // Important needed to override .Button styles...which also have !important
+            padding: 0!important;
+            // min-width needed to override .Button styles
+            min-width: 0px;
+            margin: 0;
+            background: transparent !important;
+            text-shadow: none !important;
+            border: 0;
+            opacity: 1;
+            width: 50px;
+            height: 50px;
+
+            span {
+                display: none;
+            }
+
+            &.Disabled, &.Disabled:hover {
+                opacity: .3;
+                color: $component-color-text-lightened;
+
+                .SVGIcon {
+                    fill: $component-color-text-lightened;
+                }
+            }
+
+            .SVGIcon {
+                @include generate-style-block('NavigationSVGIcon') {
+                    @extend %NavigationSVGIconPlaceholder;
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+                .SVGIcon {
+                    @include generate-style-block('NavigationSVGIconHover') {
+                        @extend %NavigationSVGIconPlaceholder;
+                        fill: $component-color-branding2;
+                    }
+                }
+            }
+
+            &:active {
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+        }
+    }
+}
+
+@media #{$basic-screen-query-narrow} {
+    @include customize-style-block('NavigationButtonsLink') {
+        .NavigationButton {
+            .SVGIcon {
+                @include generate-style-block('NavigationSVGIconNarrow') {
+                    @include NavigationSVGIconStyle;
+                }
+            }
+        }
+    }
+}

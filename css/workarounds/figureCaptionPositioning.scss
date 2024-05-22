@@ -1,0 +1,5 @@
+//the associated core ticket - WPS-7103
+@include customize-style-block('FigureCaption') {
+    margin: 0 auto 0 auto !important;
+    //text-align can be used to position Caption relative to Figure
+}

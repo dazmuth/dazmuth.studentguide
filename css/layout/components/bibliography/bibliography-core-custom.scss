@@ -1,0 +1,15 @@
+@include customize-style-block('BibliographyCitationTypeHeading') {
+  background-color: lighten($component-color-text-dark, 20%);
+  color: $component-color-text-light-hover;
+  border: none;
+}
+
+$citation-background-color-highlighted: lighten($component-color-text-dark, 35%);
+
+@include customize-style-block('BibliographyCitationTypeHeadingHover') {
+  background-color: $citation-background-color-highlighted;
+}
+
+@include customize-style-block('BibliographyCitationTypeHeadingActive') {
+  background-color: $citation-background-color-highlighted;
+}

@@ -1,0 +1,14 @@
+@include customize-style-block('SectionStatusQuestionList') {
+    color: $component-color-text-dark;
+}
+
+@include customize-style-block('SectionStatusQuestionListQuestionItemHover') {
+    color: $component-color-text-light-hover;
+    .QuestionFlag {
+        .SVGIcon {
+            @include generate-style-block('SectionStatusQuestionListQuestionItemHoverQuestionFlagSVGIcon') {
+                stroke: $component-color-text-light-hover;
+            }
+        }
+    }
+}

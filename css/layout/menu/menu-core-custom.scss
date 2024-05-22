@@ -1,0 +1,148 @@
+// On smaller screens, overlay content
+#PageMenu {
+    @include generate-style-block('PageMenuWrapper') {
+        position: absolute;
+        #{$right}: 0;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .course-tile-container {
+        padding: 15px;
+
+        .Title {
+            font-size: 1.2em;
+            text-transform: uppercase;
+            margin: 0;
+            text-align: center;
+        }
+    }
+}
+
+@include customize-style-block('MainMenuDropDownIconHoverComponentLinkExtensionsLinkTitle') {
+    display: none;
+}
+
+@include customize-style-block('MainMenuComponentLinkExtensionsLink') {
+    padding: 30px 5px 0px 5px;
+}
+
+@include customize-style-block('MainMenuWrapper') {
+    position: relative;
+
+    &.FromRight.Open {
+        width: $menu-open-width;
+        max-width: $menu-open-width;
+        max-height: calc(100vh - #{$header-height} - #{$footer-height});
+        height: calc(100vh - #{$header-height} - #{$footer-height});
+        transition: none;
+    }
+  
+    &.FromRight.Closed {
+        transition: none;
+    }
+  
+    .Middle > .ComponentLink {
+        width: 60px;
+    }
+}
+
+// On larger screens, shift content
+@media #{$basic-screen-query-wide} {
+    #PageMenu {
+        @include generate-style-block('PageMenuWide') {
+            position: relative;
+            box-shadow: none;
+        }
+    }
+
+    %MainMenu {
+        overflow: hidden;
+        #{$right}: 0;
+        max-width: $menu-open-width;
+        height: 100%;
+    }
+
+    %MainMenuTop {
+        height: 0;
+        #InsideMenuIcon {
+            display: none;
+        }
+    }
+    
+    #MainMenuWrapper {
+        @include generate-style-block('MainMenuWrapperWide') {
+            @extend %MainMenu;
+        }
+        .Top {
+            @include generate-style-block('MainMenuWrapperTopWide') {
+                @extend %MainMenuTop;
+            }
+        }
+    }
+
+    #MainMenuWrapper.Closed {
+        @include generate-style-block('MainMenuWrapperClosedWide') {
+            @extend %MainMenu;
+        }
+        .Top {
+            @include generate-style-block('MainMenuWrapperClosedTopWide') {
+              @extend %MainMenuTop;
+            }
+        }
+    }
+
+    #MainMenuWrapper.Open {
+        @include generate-style-block('MainMenuWrapperOpenWide') {
+            display: block;
+            visibility: visible;
+        }
+    }
+}
+
+@include customize-style-block('MainMenuMiddleRegion') {
+    height: $menu-middle-height;
+    background-color: $layout-color-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+@include customize-style-block('MainMenuBottomRegion') {
+    > div {
+        padding-top: 15px;
+        box-sizing: border-box;
+        color: $layout-color-text-dark;
+    }
+}
+
+@include customize-style-block('MainMenuComponentLink') {
+    height: auto;
+    flex: 1 1 auto;
+    padding: $layout-padding;
+    background: none;
+    fill: $layout-color-text-dark;
+}
+
+@include customize-style-block('MainMenuComponentLinkActive') {
+    background: none;
+    color: $layout-color-branding2;
+    fill: $layout-color-branding2;
+}
+
+@include customize-style-block('MainMenuDropDownIcon') {
+    flex: 0 1 auto;
+    color: $layout-color-text-light;
+}
+
+@include customize-style-block('MainMenuDropDownIconBefore') {
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+@include customize-style-block('MainMenuComponentLinkIcon') {
+    width: $main-menu-icon-dimension;
+    height: $main-menu-icon-dimension;
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

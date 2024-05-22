@@ -1,0 +1,57 @@
+///*!
+// * @license
+// * Copyright c 2020 Xyleme, Inc., 700 17th Street, Suite 1950 Denver, CO. 80202 USA.
+// * All rights reserved.
+// *
+// * This file and related documentation are protected by copyright and
+// * are distributed under licenses regarding their use, copying, distribution,
+// * and decompilation. No part of this product or related documentation may
+// * be reproduced or transmitted in any form or by any means, electronic or
+// * mechanical, for any purpose, without the express written permission of
+// * Xyleme, Inc.
+//*/
+
+.TimerLink {
+
+    .TimerContainer {
+        width: 90px;
+        border-bottom: none;
+        padding: 10px 0;
+        margin: 0 0 0 1.5rem;
+
+        @media #{$basic-screen-query-narrow} {
+            margin: $component-margin-bottom;
+        }
+
+        .TimerRemainingTime {
+            .TimerRemainingTimeLabel {
+                display: none;
+            }
+            .TimerRemainingTimeValue {
+                display: inline-block;
+            }
+        }
+
+        @media #{$basic-screen-query-normal} {
+            width: 210px;
+            .TimerRemainingTime {
+                .TimerRemainingTimeLabel {
+                    display: inline;
+                    &::after {
+                        content: ' ' !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .TimerProgress {
+        margin: 5px 0 0;
+        width: 100%;
+    }
+
+    .TimerRemainingTime {
+        text-align: left;
+    }
+    
+}

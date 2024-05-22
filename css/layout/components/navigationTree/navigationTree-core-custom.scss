@@ -1,0 +1,64 @@
+@include customize-style-block('NavigationTreeNode') {
+    &.LeafNode.Active:not(.Container) {
+        border: 0px solid $component-color-branding2;
+        $active-tree-node-border-effect-width: 5px;
+        border-#{$left}-width: $active-tree-node-border-effect-width;
+
+        .NavigationTreeItem {
+            margin-#{$left}: -$active-tree-node-border-effect-width;
+        }
+    }
+}
+
+@include customize-style-block('NavigationTreeNodeActiveLink') {
+    color: $component-color-text-dark;
+}
+
+@include customize-style-block('NavigationTreeNodeLinkHover') {
+    background: darken($layout-color-container-background-light, 2%);
+}
+
+@include customize-style-block('NavigationTreeNodeCollapsableActiveExpansionIcon') {
+    fill: $component-color-branding1!important;
+}
+
+@include customize-style-block('NavigationTreeNodeCollapsableExpandedExpansionIcon') {
+    fill: $navigationTree-markers-color;
+}
+
+@include customize-style-block('NavigationTreeNodeCollapsableCollapsedExpansionIcon') {
+    fill: $navigationTree-markers-color;
+}
+
+@include customize-style-block('NavigationTreeNode') {
+    .NavigationTreeItem {
+        padding: side-values(8px 8px 8px (25px*1.5));
+    }
+}
+
+// Progress indicators
+@include customize-style-block('NavigationTreeNodeMarker') {
+    border: 2px solid $navigationTree-markers-color;
+    background: none;
+}
+
+@include customize-style-block('NavigationTreeNodeCompletedMarker') {
+    background-color: $navigationTree-markers-color;
+}
+
+@include customize-style-block('NavigationTreeNodeActiveMarker') {
+    background: none;
+    border-color: $component-color-correct;
+    border-width: $navigationTree-border-width;
+}
+
+@include customize-style-block('NavigationTreeNodeContainerMarker') {
+    width: 7px;
+    height: 7px;
+    background: none;
+}
+
+@include customize-style-block('NavigationTreeNodeCompletedAndSatisfiedMarker') {
+    border-color: $component-color-correct;
+    background-color: $component-color-correct;
+}

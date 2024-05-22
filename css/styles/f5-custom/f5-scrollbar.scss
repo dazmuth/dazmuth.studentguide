@@ -1,0 +1,31 @@
+$f5-scrollbar-border-radius: 8px;
+$f5-scrollbar-color: $basic-color-branding1;
+$f5-scrollbar-face-color: $f5-scrollbar-color;
+$f5-scrollbar-shadow-color: $f5-scrollbar-color;
+$f5-scrollbar-highlight-color: $f5-scrollbar-color;
+$f5-scrollbar-darkshadow-color: $f5-scrollbar-color;
+$f5-scrollbar-track-color: if(variable-exists(content-color-pageinnerwrap-background), $content-color-pageinnerwrap-background, #FFF);
+$f5-scrollbar-arrow-color: transparent;
+
+%F5scrollbarStyle {
+    &::-webkit-scrollbar {
+        width: 9px;
+        height: 9px;
+    }
+    &::-webkit-scrollbar-button:start:decrement, #doc::-webkit-scrollbar-button:end:increment {
+        display: block;
+        height: 0;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+        -webkit-border-radius: 0;
+        -webkit-border-bottom-right-radius: $f5-scrollbar-border-radius;
+        -webkit-border-bottom-left-radius: $f5-scrollbar-border-radius;
+    }
+    &::-webkit-scrollbar-thumb {
+        height: 50px;
+        background-color: $f5-scrollbar-color;
+        -webkit-border-radius: $f5-scrollbar-border-radius;
+    }
+}

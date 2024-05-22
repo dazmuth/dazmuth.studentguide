@@ -1,0 +1,32 @@
+@include customize-style-block('GlossaryIndex') {
+    z-index: 1;
+}
+
+%GlossaryText {
+    color: $component-color-text-dark;
+}
+
+@include customize-style-block('GlossaryIndexLink') {
+    @extend %GlossaryText;
+}
+
+@include customize-style-block('GlossaryContentsLetter') {
+    @extend %GlossaryText;
+    font-weight: 600;
+}
+
+@include customize-style-block('GlossaryLetterListItem') {
+    @extend %GlossaryText;
+}
+
+@include customize-style-block('GlossaryLetterListItemHover') {
+    @extend %GlossaryText;
+}
+
+@include customize-style-block('GlossaryItemTerm') {
+    @extend %GlossaryText;
+}
+
+@include customize-style-block('GlossaryItemTermHover') {
+    @extend %GlossaryText;
+}
